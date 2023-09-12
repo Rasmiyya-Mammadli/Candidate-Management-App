@@ -1,0 +1,33 @@
+<h2>Candidate Details</h2>
+<form (ngSubmit)="onSubmit()">
+  <div>
+    <label for="firstName">First Name:</label>
+    <input type="text" id="name" [(ngModel)]="candidate.name" name="name" required>
+  </div>
+  <div>
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="surname" [(ngModel)]="candidate.surname" name="surname" required>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="candidate.email" name="email" required>
+  </div>
+
+  <div>
+    <label for="status">Client Status:</label>
+    <select id="status" [(ngModel)]="candidate.status" name="status">
+      <option *ngFor="let status of clientStatuses" [value]="status">{{ status.name }}</option>
+    </select>
+  </div>
+
+  <div>
+    <label>Skills:</label>
+    <div *ngFor="let skill of skills">
+      <label class="checkbox">
+        <input type="checkbox" [(ngModel)]="skill.selected" name="skills" [value]="skill.name"> {{ skill.name }}
+      </label>
+    </div>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>

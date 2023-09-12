@@ -1,0 +1,7 @@
+<h2><strong>Candidates</strong></h2>
+<ul>
+  <li *ngFor="let candidate of candidates" class="candidate">
+    {{ candidate.name }} {{ candidate.surname }}
+    <button (click)="editCandidate(candidate.id)">Edit</button>
+  </li>
+</ul>
